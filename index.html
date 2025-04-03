@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Test Entry System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Patient Test Entry Form</h1>
+        <button type="button" id="downloadRecords" class="download-btn">Download All Records</button>
+        <form id="dataEntryForm">
+            <div class="form-group">
+                <label for="name">Patient Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="0" max="150" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="gender-options">
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">
+                        <i class="fas fa-male"></i>
+                        Male
+                    </label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">
+                        <i class="fas fa-female"></i>
+                        Female
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group doctor-info">
+                <label for="referringDoctor" class="refer-doctor-label">Referring Doctor:</label>
+                <select id="referringDoctor" name="referringDoctor" class="doctor-select" required>
+                    <option value="">Select Doctor</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Test Date and Time:</label>
+                <input type="datetime-local" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label>Select Tests:</label>
+                <div class="search-box">
+                    <input type="text" id="testSearch" placeholder="Type to search tests...">
+                    <button type="button" id="searchBtn" class="search-btn">Search</button>
+                </div>
+                <div id="testList" class="test-list">
+                    <!-- Tests will be loaded dynamically -->
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Total Amount:</label>
+                <div id="totalAmount" class="total-amount">₹0</div>
+            </div>
+
+            <div class="form-group">
+                <label>Payment Status:</label>
+                <div class="payment-options">
+                    <input type="radio" id="pending" name="paymentStatus" value="pending" checked>
+                    <label for="pending">Pending</label>
+                    <input type="radio" id="done" name="paymentStatus" value="done">
+                    <label for="done">Done</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="amountPaid">Amount Paid:</label>
+                <input type="number" id="amountPaid" name="amountPaid" min="0" step="1">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div class="nav-section">
+            <a href="data.html" class="nav-btn">View History</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1><i class="fas fa-hospital-user"></i> Lab Management Panel</h1>
+            <div class="admin-actions">
+                <button onclick="backupDatabase()" class="admin-btn backup-btn">
+                    <i class="fas fa-cloud-download-alt"></i> Backup Database
+                </button>
+                <label for="uploadBackup" class="admin-btn upload-btn">
+                    <i class="fas fa-cloud-upload-alt"></i> Restore Backup
+                </label>
+                <input type="file" id="uploadBackup" accept=".json" style="display: none">
+                <a href="index.html" class="admin-btn nav-btn">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+            </div>
+        </header>
+
+        <div class="admin-sections">
+            <!-- Doctors Management -->
+            <section class="admin-section">
+                <h2><i class="fas fa-user-md"></i> Doctors Management</h2>
+                <div class="admin-form">
+                    <input type="text" id="doctorName" placeholder="Enter Doctor Name">
+                    <input type="text" id="doctorId" placeholder="Enter Doctor ID">
+                    <button onclick="addDoctor()" class="admin-btn">
+                        <i class="fas fa-plus-circle"></i> Add New Doctor
+                    </button>
+                </div>
+                <div class="data-list" id="doctorsList"></div>
+            </section>
+
+            <!-- Tests Management -->
+            <section class="admin-section">
+                <h2><i class="fas fa-flask"></i> Tests Management</h2>
+                <div class="admin-form">
+                    <input type="text" id="testName" placeholder="Enter Test Name">
+                    <input type="number" id="testPrice" placeholder="Enter Test Price">
+                    <button onclick="addTest()" class="admin-btn">
+                        <i class="fas fa-plus-circle"></i> Add New Test
+                    </button>
+                </div>
+                <div class="data-list" id="testsList"></div>
+            </section>
+        </div>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

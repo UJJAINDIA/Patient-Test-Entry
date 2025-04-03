@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Patient History</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="history-page">
+        <div class="header-section">
+            <div class="header-content">
+                <h1>Patient Records</h1>
+                <div class="search-controls">
+                    <input type="text" id="nameSearch" placeholder="Search by patient name..." class="search-input">
+                    <input type="date" id="dateSearch" class="search-input">
+                    <button type="button" id="searchRecords" class="search-btn">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                    <button type="button" id="clearSearch" class="clear-btn">
+                        <i class="fas fa-times"></i> Clear
+                    </button>
+                </div>
+            </div>
+            <div class="header-buttons">
+                <button type="button" id="downloadRecords" class="download-btn">
+                    <i class="fas fa-download"></i> Export Excel
+                </button>
+                <button type="button" id="deleteAll" class="delete-btn">
+                    <i class="fas fa-trash-alt"></i> Delete All
+                </button>
+                <a href="index.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+            </div>
+        </div>
+        <div id="historyList" class="history-list-full"></div>
+    </div>
+    <!-- Add invoice template container -->
+    <div id="invoiceTemplate" style="display: none;">
+        <div class="invoice-container">
+            <div class="invoice-header">
+                <div class="logo-section">
+                    <img src="lab-logo.png" alt="Lab Logo" id="labLogo">
+                </div>
+                <div class="lab-info">
+                    <h2>Medical Test Invoice</h2>
+                    <p>Your Lab Name</p>
+                    <p>Address Line 1, City, State - PIN</p>
+                    <p>Phone: (123) 456-7890 | Email: info@yourlab.com</p>
+                    <p>GST No: XXXXXXXXXXXXX</p>
+                </div>
+            </div>
+            <div class="invoice-body"></div>
+            <div class="invoice-footer">
+                <div class="terms-conditions">
+                    <p>Terms & Conditions:</p>
+                    <small>1. Reports will be ready as per standard TAT</small>
+                    <small>2. This is a computer generated invoice</small>
+                </div>
+                <div class="signature-section">
+                    <div class="signature-box">
+                        <p>Authorized Signature</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="admin.html" class="admin-corner-btn">
+        <i class="fas fa-cog"></i>
+        <span>Admin Panel</span>
+    </a>
+    <script src="data.js"></script>
+</body>
+</html>
